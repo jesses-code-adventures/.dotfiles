@@ -1,0 +1,22 @@
+#!/bin/bash
+
+OS=$(uname)
+
+case "$OS" in
+  'Linux')
+    echo "Linux is not supported yet - exiting."
+    exit 1
+    ;;
+  'Darwin')
+    chmod +x ./macos
+    ./macos
+    ;;
+  'CYGWIN'*|'MINGW'*|'MSYS'*)
+    echo "Why would you use windows?"
+    exit 1
+    ;;
+  *)
+    echo "Unknown operating system: $OS - exiting."
+    exit 1
+    ;;
+esac
