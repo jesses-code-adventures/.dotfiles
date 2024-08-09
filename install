@@ -2,18 +2,25 @@
 
 OS=$(uname)
 
+if [[ "$OS" == *"CYGWIN"* || "$OS" == *"MINGW"* || "$OS" == *"MSYS"* ]]; then
+  echo "stop using windows."
+  exit 1
+fi
+
+## config symlinks
+ln -s "$HOME/.dotfiles/.config" "$HOME/.config"
+ln -s "$HOME/dotfiles/.tmux.conf" "$HOME/.tmux.conf"
+
 case "$OS" in
   'Linux')
     echo "Linux is not supported yet - exiting."
     exit 1
     ;;
   'Darwin')
-    chmod +x ./macos
-    ./macos
-    ;;
-  'CYGWIN'*|'MINGW'*|'MSYS'*)
-    echo "Why would you use windows?"
-    exit 1
+    chmod +x ./inst_macos
+    ./inst_macos
+    chmod +x ./source_macos
+    ./source_macos
     ;;
   *)
     echo "Unknown operating system: $OS - exiting."

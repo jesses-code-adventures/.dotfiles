@@ -1,0 +1,12 @@
+*.DS_Store
+source_macos_personal
+.config/gh
+.config/github-copilot
+.config/iterm2
+.config/local-plugs
+.config/planetscale
+.config/spotify-tui
+.config/SmartSetMasterErgo (Mac)
+.config/yarn
+.config/configstore
+.config/tmux/sessions/*

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+## xcode command line tools
+xcode-select --install
+
+## homebrew
+curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash < /dev/null
+
+## iterm2
+brew install --cask iterm2
+
+## tmux
+brew install tmux
+
+## neovim
+curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz
+tar xzf nvim-macos.tar.gz
+./nvim-osx64/bin/nvim
+
+## web browser
+brew install --cask arc
+
+## notes
+brew install --cask obsidian
