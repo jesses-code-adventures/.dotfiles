@@ -8,7 +8,6 @@ if [[ "$OS" == *"CYGWIN"* || "$OS" == *"MINGW"* || "$OS" == *"MSYS"* ]]; then
 fi
 
 ## config symlinks
-ln -s "$HOME/.dotfiles/.config" "$HOME/.config"
 ln -s "$HOME/dotfiles/.tmux.conf" "$HOME/.tmux.conf"
 
 case "$OS" in

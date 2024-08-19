@@ -22,3 +22,6 @@ brew install --cask arc
 
 ## notes
 brew install --cask obsidian
+
+ln -s "$HOME/.dotfiles/.zshrc" "$HOME/.zshrc"
+ln -s "$HOME/.dotfiles/.config" "$HOME/.config"
