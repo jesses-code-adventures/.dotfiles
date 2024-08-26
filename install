@@ -10,9 +10,6 @@ fi
 # determine script directory
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-## config symlinks
-ln -s "$HOME/dotfiles/.tmux.conf" "$HOME/.tmux.conf"
-
 case "$OS" in
   'Linux')
     echo "Linux is not supported yet - exiting."

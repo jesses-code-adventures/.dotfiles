@@ -1,7 +1,19 @@
 #!/bin/bash
 
-ln -s "$HOME/.dotfiles/.zshrc" "$HOME/.zshrc"
-ln -s "$HOME/.dotfiles/.config" "$HOME/.config"
+function create_symlink() {
+  local source_path=$1
+  local target_path=$2
+  if [ ! -L "$target_path" ]; then
+    ln -s "$source_path" "$target_path"
+  else
+    echo "already exists: file or link at $target_path"
+  fi
+}
+
+create_symlink "$HOME/dotfiles/.tmux.conf" "$HOME/.tmux.conf"
+create_symlink "$HOME/.dotfiles/.zshrc" "$HOME/.zshrc"
+create_symlink "$HOME/.dotfiles/.config" "$HOME/.config"
+
 mkdir -p $HOME/.config/tmux/sessions
 # Finder: disable window animations and Get Info animations
 defaults write com.apple.finder DisableAllAnimations -bool true
