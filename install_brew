@@ -2,6 +2,8 @@
 
 ## iterm2
 brew install --cask iterm2
+## node
+brew install node
 ## tmux
 brew install tmux
 ## neovim
