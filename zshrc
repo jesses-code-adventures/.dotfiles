@@ -1,7 +1,7 @@
 export DEFAULT_USER=$USER
 export PS1="%1d %& # "
 alias air="~/go/bin/air"
-alias vim="nvim"
+# alias vim="nvim"
 PROMPT="%F{magenta}%1d%f~$ "
 export PATH=$PATH:"$HOME/.local/bin"
 export PATH=$PATH:"$HOME/go/bin"
@@ -45,4 +45,6 @@ p() {
 
 if [ -f "./.zshrc_personal" ]; then
     source "./.zshrc_personal"
+elif [ -f "$HOME/.dotfiles/.zshrc_personal" ]; then 
+    source "$HOME/.dotfiles/.zshrc_personal"
 fi
