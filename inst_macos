@@ -25,7 +25,13 @@ defaults write com.apple.ActivityMonitor SortDirection -int 0
 ## xcode command line tools
 xcode-select --install
 ## homebrew
-curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash < /dev/null
+sudo curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash < /dev/null
+if [ ! -f /opt/homebrew/bin/brew ]; then
+    echo "No file found at /opt/homebrew/bin/brew"
+    exit 1
+fi
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> $HOME/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
 if ! command -v brew &> /dev/null; then
     echo "homebrew could not be found. aborting."
     exit 1

@@ -21,8 +21,6 @@ case "$OS" in
   'Darwin')
     chmod +x "$DIR/inst_macos"
     "$DIR/inst_macos"
-    chmod +x "$DIR/source_macos"
-    "$DIR/source_macos"
     ;;
   *)
     echo "Unknown operating system: $OS - exiting."
