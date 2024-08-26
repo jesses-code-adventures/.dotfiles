@@ -42,34 +42,6 @@ p() {
     fi
 }
 
-# if [ -f "./.zshrc_personal" ]; then
-#     source "./.zshrc_personal"
-# fi
-export GIVETEL_ENV="development"
-export PATH="$PATH:$HOME/.modular/pkg/packages.modular.com_mojo/bin"
-export PATH="$PATH:$HOME/.zig"
-export MODULAR_HOME="$HOME/.modular"
-
-window_management() {
-    local script_path="$HOME/.config/tmux/sessions/window-management.bash"
-    if [ -f "$script_path" ]; then
-        bash "$script_path"
-    else
-        echo "Script not found: $script_name"
-    fi
-}
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$(conda 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "$(conda info --base)/etc/profile.d/conda.sh" ]; then
-        . "$(conda info --base)/etc/profile.d/conda.sh"
-    else
-        export PATH="$(conda info --base)/bin:$PATH"
-    fi
+if [ -f "./.zshrc_personal" ]; then
+    source "./.zshrc_personal"
 fi
-unset __conda_setup
-# <<< conda initialize <<<
