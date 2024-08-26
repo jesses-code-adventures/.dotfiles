@@ -1,6 +1,7 @@
 export DEFAULT_USER=$USER
 export PS1="%1d %& # "
 alias air="~/go/bin/air"
+alias vim="nvim"
 PROMPT="%F{magenta}%1d%f~$ "
 export PATH=$PATH:"$HOME/.local/bin"
 export PATH=$PATH:"$HOME/go/bin"
