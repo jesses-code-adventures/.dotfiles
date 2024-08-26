@@ -1,0 +1,18 @@
+#!/bin/bash
+
+## iterm2
+brew install --cask iterm2
+## tmux
+brew install tmux
+## neovim
+brew install neovim
+## web browser
+brew install --cask arc
+## notes
+brew install --cask obsidian
+## yabai - window/space manager
+brew install koekeishiya/formulae/yabai
+yabai --start-service
+## skhd - yabai hotkeys
+brew install koekeishiya/formulae/skhd
+skhd --start-service

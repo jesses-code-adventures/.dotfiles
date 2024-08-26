@@ -7,6 +7,9 @@ if [[ "$OS" == *"CYGWIN"* || "$OS" == *"MINGW"* || "$OS" == *"MSYS"* ]]; then
   exit 1
 fi
 
+# determine script directory
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 ## config symlinks
 ln -s "$HOME/dotfiles/.tmux.conf" "$HOME/.tmux.conf"
 
@@ -16,10 +19,10 @@ case "$OS" in
     exit 1
     ;;
   'Darwin')
-    chmod +x ./inst_macos
-    ./inst_macos
-    chmod +x ./source_macos
-    ./source_macos
+    chmod +x "$DIR/inst_macos"
+    "$DIR/inst_macos"
+    chmod +x "$DIR/source_macos"
+    "$DIR/source_macos"
     ;;
   *)
     echo "Unknown operating system: $OS - exiting."
