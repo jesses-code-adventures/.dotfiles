@@ -37,7 +37,7 @@ defaults write com.apple.ActivityMonitor SortDirection -int 0
 ## xcode command line tools
 xcode-select --install
 ## homebrew
-sudo curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash < /dev/null
+sudo curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash 
 if [ ! -f /opt/homebrew/bin/brew ]; then
     echo "No file found at /opt/homebrew/bin/brew"
     exit 1
