@@ -13,6 +13,7 @@ function create_symlink() {
 create_symlink "$HOME/dotfiles/.tmux.conf" "$HOME/.tmux.conf"
 create_symlink "$HOME/.dotfiles/.zshrc" "$HOME/.zshrc"
 create_symlink "$HOME/.dotfiles/.config" "$HOME/.config"
+create_symlink "$HOME/.dotfiles/.iterm2_shell_integration.zsh" "$HOME/.iterm2_shell_integration.zsh"
 
 mkdir -p $HOME/.config/tmux/sessions
 # Finder: disable window animations and Get Info animations
