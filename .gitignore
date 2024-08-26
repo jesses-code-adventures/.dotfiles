@@ -1,15 +1,14 @@
 *.DS_Store
-config/*
-.config/gh
-.config/github-copilot
-.config/iterm2
-.config/local-plugs
-.config/planetscale
-.config/spotify-tui
-.config/SmartSetMasterErgo (Mac)
-.config/yarn
-.config/configstore
-.config/tmux/sessions/*
-.zshrc_personal
-.config/neofetch/config.conf
+config/gh
+config/github-copilot
+config/iterm2
+config/local-plugs
+config/planetscale
+config/spotify-tui
+config/SmartSetMasterErgo (Mac)
+config/yarn
+config/configstore
+config/tmux/sessions/*
+zshrc_personal
+config/neofetch/config.conf
 .arc_recovery_code
