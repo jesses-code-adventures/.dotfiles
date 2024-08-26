@@ -3,7 +3,7 @@
 function create_symlink() {
   local source_path=$1
   local target_path=$2
-  if [ ! -L "$target_path" ]; then
+  if [ ! -e "$target_path" ]; then
     ln -s "$source_path" "$target_path"
   else
     echo "already exists: file or link at $target_path"
