@@ -45,6 +45,6 @@ p() {
 
 if [ -f "./.zshrc_personal" ]; then
     source "./.zshrc_personal"
-elif [ -f "$HOME/.dotfiles/.zshrc_personal" ]; then 
-    source "$HOME/.dotfiles/.zshrc_personal"
+elif [ -f "$HOME/.dotfiles/zshrc_personal" ]; then
+    source "$HOME/.dotfiles/zshrc_personal"
 fi
