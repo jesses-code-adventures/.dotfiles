@@ -2,6 +2,8 @@
 
 ## iterm2
 brew install --cask iterm2
+## ripgrep
+brew install ripgrep
 ## node
 brew install node
 ## tmux
@@ -20,3 +22,4 @@ brew install --cask obsidian
 # skhd --start-service - switched out while trying aerospace
 # aerospace - window/space manager
 brew install --cask nikitabobko/tap/aerospace
+brew install --cask font-jetbrains-mono-nerd-font
