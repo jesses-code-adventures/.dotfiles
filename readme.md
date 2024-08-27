@@ -13,7 +13,3 @@ git clone --recurse-submodules github.com/jesses-code-adventures/.dotfiles ~/.do
 chmod +x ~/.dotfiles/install
 ~/.dotfiles/install
 ```
-
-## yabai
-
-you may need to do some funky stuff with yabai on osx, which you can find [here](<https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)>)
