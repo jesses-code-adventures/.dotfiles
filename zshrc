@@ -1,3 +1,5 @@
+export EDITOR=vi
+set -o vi
 export DEFAULT_USER=$USER
 export PS1="%1d %& # "
 alias air="~/go/bin/air"

@@ -2,6 +2,8 @@
 
 ## iterm2
 brew install --cask iterm2
+## jq
+brew install jq
 ## ripgrep
 brew install ripgrep
 ## node
