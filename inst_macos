@@ -25,11 +25,12 @@ delete_symlink_if_exists "$HOME/.tmux.conf"
 delete_symlink_if_exists "$HOME/.zshrc"
 delete_symlink_if_exists "$HOME/.config"
 delete_symlink_if_exists "$HOME/.aerospace"
+delete_symlink_if_exists "$HOME/.gitmux.conf"
 create_symlink "$HOME/.dotfiles/tmux.conf" "$HOME/.tmux.conf"
 create_symlink "$HOME/.dotfiles/zshrc" "$HOME/.zshrc"
 create_symlink "$HOME/.dotfiles/config" "$HOME/.config"
 create_symlink "$HOME/.dotfiles/aerospace" "$HOME/.aerospace"
-create_symlink "$HOME/.dotfiles/.iterm2_shell_integration.zsh" "$HOME/.iterm2_shell_integration.zsh"
+create_symlink "$HOME/.dotfiles/gitmux.conf" "$HOME/.gitmux.conf"
 
 
 
