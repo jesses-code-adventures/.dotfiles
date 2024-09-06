@@ -12,3 +12,4 @@ config/tmux/sessions/*
 zshrc_personal
 config/neofetch/config.conf
 .arc_recovery_code
+config/secrets

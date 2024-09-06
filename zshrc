@@ -18,9 +18,9 @@ prompt_context() {
   fi
 }
 
-# treat tmux sessions as projects
 p() {
     local script_name="$1"
+    shift
     if [ "$script_name" = "ls" ]; then
         local sessions_dir="$HOME/.config/tmux/sessions/"
         if [ -d "$sessions_dir" ]; then
@@ -38,7 +38,7 @@ p() {
     else
         local script_path="$HOME/.config/tmux/sessions/$script_name.bash"
         if [ -f "$script_path" ]; then
-            bash "$script_path"
+            bash "$script_path" "$@"
         else
             echo "Script not found: $script_name"
         fi
