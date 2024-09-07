@@ -18,6 +18,17 @@ prompt_context() {
   fi
 }
 
+alias prs='git fetch --all && gh pr list --json number,createdAt,headRefName,author,title,url | jq -r ".[] | [.number, .createdAt, .headRefName, .title, .author.login, .url] | @csv" | sort -r | column -ts $"," | sed "s/\"//g" | fzf | awk "{printf \$3}" | xargs -I_ git checkout _'
+        # /usr/local/bin/git
+        # /usr/local/bin/gh
+        # /usr/local/bin/jq
+        # /usr/bin/sort
+        # /usr/bin/column
+        # /usr/local/opt/gnu-sed/libexec/gnubin/sed
+        # /usr/local/bin/fzf
+        # /usr/bin/awk
+        # /usr/bin/xargs
+
 p() {
     local script_name="$1"
     shift
