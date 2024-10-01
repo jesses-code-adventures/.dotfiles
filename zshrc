@@ -8,6 +8,11 @@ PROMPT="%F{magenta}%1d%f~$ "
 export PATH=$PATH:"$HOME/.local/bin"
 export PATH=$PATH:"$HOME/go/bin"
 export PATH="$PATH:/Library/PostgreSQL/16/bin"
+alias gc="git checkout"
+alias gs="git status"
+alias gp="git pull"
+alias gb="git branch"
+alias gm="git merge"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 source ~/.iterm2_shell_integration.zsh
