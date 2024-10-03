@@ -20,12 +20,7 @@ brew install neovim
 brew install --cask arc
 ## notes
 brew install --cask obsidian
-## yabai - window/space manager - switched out while trying aerospace
-# brew install koekeishiya/formulae/yabai
-# yabai --start-service - switched out while trying aerospace
-## skhd - yabai hotkeys
-# brew install koekeishiya/formulae/skhd - switched out while trying aerospace
-# skhd --start-service - switched out while trying aerospace
 # aerospace - window/space manager
 brew install --cask nikitabobko/tap/aerospace
 brew install --cask font-jetbrains-mono-nerd-font
+brew install watch

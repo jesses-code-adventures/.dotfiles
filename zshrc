@@ -13,6 +13,12 @@ alias gs="git status"
 alias gp="git pull"
 alias gb="git branch"
 alias gm="git merge"
+alias ghv='gh repo view -w'
+alias ghpr='gh pr list'
+alias gcm='git checkout main'
+alias gmm='git merge main'
+alias pipe='gh run list -L 5'
+alias ciw='watch -n 10 pipe'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 source ~/.iterm2_shell_integration.zsh
