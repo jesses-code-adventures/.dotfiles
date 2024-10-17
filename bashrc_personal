@@ -1,0 +1,4 @@
+export PATH="/opt/homebrew/cellar/go@1.22/1.22.7/bin:$PATH"
+export PATH="$HOME/tailwind:$PATH"
+alias mdb='make db-reset'
+alias mdb-serve='make db-ci-kserve'
