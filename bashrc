@@ -24,8 +24,7 @@ alias gb="git branch"
 alias gm="git merge"
 alias ghv='gh repo view -w'
 alias ghpr='gh pr list'
-alias gcm='git fetch --all --prune && git merge origin/main'
-alias gmm='git merge main'
+alias gmm='git fetch --all --prune && git merge origin/main'
 alias pipe='gh run list -L 5'
 alias ciw='watch -n 10 pipe'
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
