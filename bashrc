@@ -5,7 +5,6 @@ export DEFAULT_USER=$USER
 export PS1='\[\033[0;35m\]\W\[\033[00m\] '
 alias air="~/go/bin/air"
 alias vi="nvim"
-alias vim="nvim"
 export PATH=$PATH:"$HOME/.local/bin"
 export PATH=$PATH:"$HOME/go/bin"
 export PATH="$PATH:/Library/PostgreSQL/16/bin"
