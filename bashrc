@@ -60,6 +60,22 @@ p() {
         fi
     fi
 }
+
+vcom() {
+    if [ "$(pwd)" != "$HOME/.config/nvim" ]; then
+      echo "Script must be run from ~/.config/nvim"
+      return
+    fi
+    commit_msg="${1:-nvim commit}"
+    git add -A
+    git commit -m "$commit_msg"
+    cd ~/.dotfiles || return
+    git reset
+    git add config/nvim
+    git commit -m "nvim sha"
+    cd ~/.config/nvim || return
+}
+
 if [ -f "./.bashrc_personal" ]; then
     source "./.bashrc_personal"
 elif [ -f "$HOME/.dotfiles/bashrc_personal" ]; then
