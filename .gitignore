@@ -14,3 +14,4 @@ config/neofetch/config.conf
 .arc_recovery_code
 config/secrets
 bashrc_personal
+config/pgcli/*
