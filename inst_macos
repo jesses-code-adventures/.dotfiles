@@ -27,12 +27,14 @@ delete_symlink_if_exists "$HOME/.bash_profile"
 delete_symlink_if_exists "$HOME/.config"
 delete_symlink_if_exists "$HOME/.aerospace"
 delete_symlink_if_exists "$HOME/.gitmux.conf"
+delete_symlink_if_exists "$HOME/.vimrc"
 create_symlink "$HOME/.dotfiles/tmux.conf" "$HOME/.tmux.conf"
 create_symlink "$HOME/.dotfiles/bash_profile" "$HOME/.bash_profile"
 create_symlink "$HOME/.dotfiles/bashrc" "$HOME/.bashrc"
 create_symlink "$HOME/.dotfiles/config" "$HOME/.config"
 create_symlink "$HOME/.dotfiles/aerospace" "$HOME/.aerospace"
 create_symlink "$HOME/.dotfiles/gitmux.conf" "$HOME/.gitmux.conf"
+create_symlink "$HOME/.dotfiles/vimrc" "$HOME/vimrc"
 
 
 
