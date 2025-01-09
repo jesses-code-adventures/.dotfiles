@@ -22,6 +22,7 @@ delete_symlink_if_exists() {
 }
 
 delete_symlink_if_exists "$HOME/.tmux.conf"
+delete_symlink_if_exists "$HOME/.local/tmux_sessionizer.bash"
 delete_symlink_if_exists "$HOME/.bashrc"
 delete_symlink_if_exists "$HOME/.bash_profile"
 delete_symlink_if_exists "$HOME/.config"
@@ -35,6 +36,8 @@ create_symlink "$HOME/.dotfiles/config" "$HOME/.config"
 create_symlink "$HOME/.dotfiles/aerospace" "$HOME/.aerospace"
 create_symlink "$HOME/.dotfiles/gitmux.conf" "$HOME/.gitmux.conf"
 create_symlink "$HOME/.dotfiles/vimrc" "$HOME/vimrc"
+create_symlink "$HOME/.dotfiles/tmux_sessionizer.bash" "$HOME/.local/bin/tmux_sessionizer.bash"
+chmod +x "$HOME/.local/bin/tmux_sessionizer.bash"
 
 
 
