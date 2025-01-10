@@ -16,3 +16,4 @@ config/secrets
 bashrc_personal
 config/pgcli/*
 config/uv/*
+config/stripe/*
