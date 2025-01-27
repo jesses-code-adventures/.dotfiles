@@ -6,7 +6,9 @@ export PS1='\[\033[0;35m\]\W\[\033[00m\] '
 alias air="~/go/bin/air"
 alias vi="nvim"
 export PATH=$PATH:"$HOME/.local/bin"
+## always ensure goenv/shims appears in the $PATH BEFORE /go/bin
 export PATH=$PATH:"$HOME/go/bin"
+export PATH="$HOME/.goenv/shims:$PATH"
 export PATH="$PATH:/Library/PostgreSQL/16/bin"
 export PATH="$PATH:/opt/homebrew/bin"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -83,3 +85,4 @@ elif [ -f "$HOME/.dotfiles/bashrc_personal" ]; then
 fi
 
 eval "$(starship init bash)"
+eval "$(goenv init -)"

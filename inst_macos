@@ -37,6 +37,7 @@ create_symlink "$HOME/.dotfiles/aerospace" "$HOME/.aerospace"
 create_symlink "$HOME/.dotfiles/gitmux.conf" "$HOME/.gitmux.conf"
 create_symlink "$HOME/.dotfiles/vimrc" "$HOME/vimrc"
 create_symlink "$HOME/.dotfiles/tmux_sessionizer.bash" "$HOME/.local/bin/tmux_sessionizer.bash"
+create_symlink "$HOME/.dotfiles/gitignore_global" "$HOME/.gitignore_global"
 chmod +x "$HOME/.local/bin/tmux_sessionizer.bash"
 
 
