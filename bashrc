@@ -24,6 +24,7 @@ alias gb="git branch"
 alias gm="git merge"
 alias ghv='gh repo view -w'
 alias ghpr='gh pr list'
+alias gl='git --no-pager log --oneline --graph --decorate --all -n 10'
 alias gmm='git fetch --all --prune && git merge origin/main'
 alias pipe='gh run list -L 5'
 alias ciw='watch -n 10 pipe'
