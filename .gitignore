@@ -17,3 +17,4 @@ bashrc_personal
 config/pgcli/*
 config/uv/*
 config/stripe/*
+config/raycast/*
