@@ -13,6 +13,7 @@ export PATH="$PATH:/Library/PostgreSQL/16/bin"
 export PATH="$PATH:/opt/homebrew/bin"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export PSQL_PAGER='pspg -X -b'
+alias vid="$HOME/.local/bin/vid-dl.bash"
 alias cat="bat"
 alias ls="eza"
 alias ll="eza --long"
