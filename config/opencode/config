@@ -1,0 +1,3 @@
+theme = "ayu"
+provider = "anthropic"
+model = "claude-sonnet-4-20250514"

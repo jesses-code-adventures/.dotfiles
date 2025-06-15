@@ -72,3 +72,5 @@ if [ -f "./.zshrc_personal" ]; then
 elif [ -f "$HOME/.dotfiles/zshrc_personal" ]; then
     source "$HOME/.dotfiles/zshrc_personal"
 fi
+
+. "$HOME/.cargo/env"
