@@ -18,3 +18,10 @@ config/pgcli/*
 config/uv/*
 config/stripe/*
 config/raycast/*
+.opencode/
+config/fish/
+config/humanlog/
+config/md-tui/
+config/nvim-scratch/
+config/ruff/
+config/wezterm/
