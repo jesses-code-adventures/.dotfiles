@@ -31,3 +31,5 @@ brew install bat
 brew install eza
 brew install starship
 brew install bash-completion
+curl -fsSL https://opencode.ai/install | bash
+curl -sSL https://raw.githubusercontent.com/jesses-code-adventures/treeai/main/install.sh | bash
