@@ -27,6 +27,7 @@ alias gc="git checkout"
 alias gs="git status"
 alias gp="git pull"
 alias gb="git branch"
+alias gbc="git branch --merged | grep -v '\*\|main\|master' | xargs -n 1 git branch -d"
 alias gm="git merge"
 alias ghv='gh repo view -w'
 alias ghpr='gh pr list'
