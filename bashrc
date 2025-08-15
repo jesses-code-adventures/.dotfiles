@@ -130,3 +130,6 @@ fi
 export PATH=/Users/jessewilliams/.opencode/bin:$PATH
 
 eval "$(starship init bash)"
+
+# Turso
+export PATH="$PATH:$HOME/.turso"
