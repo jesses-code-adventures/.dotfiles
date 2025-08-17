@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 if [ $# -lt 2 ]; then
@@ -8,7 +7,7 @@ fi
 
 VIDEO_URL="$1"
 OUTPUT_FILENAME="$2"
-AUDIO_ONLY=false
+AUDIO_ONLY=true
 SAVE_URL=true
 
 if [ "$3" == "--audio-only" ] || [ "$4" == "--audio-only"  ]; then

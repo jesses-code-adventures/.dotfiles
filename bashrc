@@ -1,7 +1,7 @@
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export EDITOR=nvim
 set -o vi
-export DEFAULT_USER=$USER
+# export DEFAULT_USER=$USER
 export PS1='\[\033[0;35m\]\W\[\033[00m\] '
 alias air="~/go/bin/air"
 alias vi="nvim"
