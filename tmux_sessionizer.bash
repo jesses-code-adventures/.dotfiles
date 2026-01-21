@@ -23,7 +23,7 @@ hydrate() {
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$( (find -L ~/coding ~/coding/personal ~/coding/alexandria ~/coding/personal/max ~/coding/rapid ~/.config ~/notes ~/coding/lend ~/coding/givetel ~/coding/matchbox -mindepth 1 -maxdepth 1 -type d; echo ~/.dotfiles) | fzf)
+    selected=$( (find -L ~/coding ~/coding/personal ~/coding/alexandria ~/coding/max ~/coding/rapid ~/.config ~/notes ~/coding/lend ~/coding/givetel ~/coding/we-do-cyber ~/coding/matchbox ~/coding/personal/max ~/coding/sound-systems ~/coding/australian-technique ~/coding/amaze -mindepth 1 -maxdepth 1 -type d; echo ~/.dotfiles) | fzf)
 fi
 
 if [[ -z $selected ]]; then

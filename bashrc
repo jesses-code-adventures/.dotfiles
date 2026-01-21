@@ -10,7 +10,6 @@ export PATH=$PATH:"$HOME/.config/wezterm"
 export PATH=$PATH:"$HOME/go/bin"
 export PATH="$PATH:/Library/PostgreSQL/16/bin"
 export PATH="$PATH:/opt/homebrew/bin"
-export npm_config_prefix="$HOME/.local"
 # export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANPAGER="nvim +Man!"
 export PSQL_PAGER='pspg -X -b'
@@ -35,6 +34,7 @@ alias ciw='watch -n 10 pipe'
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 alias prs='git fetch --all && gh pr list --json number,createdAt,headRefName,author,title,url | jq -r ".[] | [.number, .createdAt, .headRefName, .title, .author.login, .url] | @csv" | sort -r | column -ts $"," | sed "s/\"//g" | fzf | awk "{printf \$3}" | xargs -I_ git checkout _'
 complete -W "\`if [ -f Makefile ]; then grep -oE '^[a-zA-Z0-9_-]+:([^=]|$)' Makefile | sed 's/[^a-zA-Z0-9_-]*$//'; elif [ -f makefile ]; then grep -oE '^[a-zA-Z0-9_-]+:([^=]|$)' makefile | sed 's/[^a-zA-Z0-9_-]*$//'; fi \`" make
+unset npm_config_prefix
 
 ## bash completion settings
 bind 'set completion-ignore-case on'
@@ -133,3 +133,15 @@ eval "$(starship init bash)"
 
 # Turso
 export PATH="$PATH:$HOME/.turso"
+
+export PATH="$HOME/.pyenv/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
+. "$HOME/.cargo/env"
