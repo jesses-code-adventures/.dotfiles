@@ -10,7 +10,7 @@ export PATH=$PATH:"$HOME/.config/wezterm"
 export PATH=$PATH:"$HOME/go/bin"
 export PATH="$PATH:/Library/PostgreSQL/16/bin"
 export PATH="$PATH:/opt/homebrew/bin"
-export npm_config_prefix="$HOME/.local"
+# export npm_config_prefix="$HOME/.local"
 # export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANPAGER="nvim +Man!"
 export PSQL_PAGER='pspg -X -b'
@@ -126,6 +126,8 @@ elif [ -f "$HOME/.dotfiles/bashrc_personal" ]; then
     source "$HOME/.dotfiles/bashrc_personal"
 fi
 
+. /opt/homebrew/etc/profile.d/z.sh
+
 # opencode
 export PATH=/Users/jessewilliams/.opencode/bin:$PATH
 
@@ -133,3 +135,11 @@ eval "$(starship init bash)"
 
 # Turso
 export PATH="$PATH:$HOME/.turso"
+
+# opencode
+export PATH=/Users/jesse/.opencode/bin:$PATH
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+. "$HOME/.cargo/env"
