@@ -1,0 +1,237 @@
+{
+  "$schema": "https://opencode.ai/theme.json",
+  "defs": {
+    "flexoki_black": "#100f0f",
+    "flexoki_base_950": "#1c1b1a",
+    "flexoki_base_900": "#282726",
+    "flexoki_base_850": "#343331",
+    "flexoki_base_800": "#403e3c",
+    "flexoki_base_700": "#575653",
+    "flexoki_base_600": "#6f6e69",
+    "flexoki_base_500": "#878580",
+    "flexoki_base_300": "#b7b5ac",
+    "flexoki_base_200": "#cecdc3",
+    "flexoki_base_150": "#dad8ce",
+    "flexoki_base_100": "#e6e4d9",
+    "flexoki_base_50": "#f2f0e5",
+    "flexoki_paper": "#fffcf0",
+    "flexoki_red": "#af3029",
+    "flexoki_orange": "#bc5215",
+    "flexoki_yellow": "#ad8301",
+    "flexoki_green": "#66800b",
+    "flexoki_cyan": "#24837b",
+    "flexoki_blue": "#205ea6",
+    "flexoki_purple": "#5e409d",
+    "flexoki_magenta": "#a02f6f",
+    "flexoki_red_2": "#d14d41",
+    "flexoki_orange_2": "#da702c",
+    "flexoki_yellow_2": "#d0a215",
+    "flexoki_green_2": "#879a39",
+    "flexoki_cyan_2": "#3aa99f",
+    "flexoki_blue_2": "#4385be",
+    "flexoki_purple_2": "#8b7ec8",
+    "flexoki_magenta_2": "#ce5d97"
+  },
+  "theme": {
+    "primary": {
+      "dark": "flexoki_orange_2",
+      "light": "flexoki_orange"
+    },
+    "secondary": {
+      "dark": "flexoki_blue_2",
+      "light": "flexoki_blue"
+    },
+    "accent": {
+      "dark": "flexoki_purple_2",
+      "light": "flexoki_purple"
+    },
+    "error": {
+      "dark": "flexoki_red_2",
+      "light": "flexoki_red"
+    },
+    "warning": {
+      "dark": "flexoki_yellow_2",
+      "light": "flexoki_yellow"
+    },
+    "success": {
+      "dark": "flexoki_green_2",
+      "light": "flexoki_green"
+    },
+    "info": {
+      "dark": "flexoki_magenta_2",
+      "light": "flexoki_magenta"
+    },
+    "text": {
+      "dark": "flexoki_base_200",
+      "light": "flexoki_base_800"
+    },
+    "textMuted": {
+      "dark": "flexoki_base_500",
+      "light": "flexoki_base_600"
+    },
+    "background": {
+      "dark": "flexoki_base_950",
+      "light": "flexoki_paper"
+    },
+    "backgroundPanel": {
+      "dark": "flexoki_base_900",
+      "light": "flexoki_base_50"
+    },
+    "backgroundElement": {
+      "dark": "flexoki_base_850",
+      "light": "flexoki_base_100"
+    },
+    "border": {
+      "dark": "flexoki_base_800",
+      "light": "flexoki_base_300"
+    },
+    "borderActive": {
+      "dark": "flexoki_blue",
+      "light": "flexoki_blue_2"
+    },
+    "borderSubtle": {
+      "dark": "flexoki_base_850",
+      "light": "flexoki_base_200"
+    },
+    "diffAdded": {
+      "dark": "flexoki_green_2",
+      "light": "flexoki_green"
+    },
+    "diffRemoved": {
+      "dark": "flexoki_red_2",
+      "light": "flexoki_red"
+    },
+    "diffContext": {
+      "dark": "flexoki_base_500",
+      "light": "flexoki_base_600"
+    },
+    "diffHunkHeader": {
+      "dark": "flexoki_base_700",
+      "light": "flexoki_base_500"
+    },
+    "diffHighlightAdded": {
+      "dark": "flexoki_green_2",
+      "light": "flexoki_green"
+    },
+    "diffHighlightRemoved": {
+      "dark": "flexoki_red_2",
+      "light": "flexoki_red"
+    },
+    "diffAddedBg": {
+      "dark": "flexoki_base_900",
+      "light": "flexoki_base_100"
+    },
+    "diffRemovedBg": {
+      "dark": "flexoki_base_900",
+      "light": "flexoki_base_100"
+    },
+    "diffContextBg": {
+      "dark": "flexoki_base_950",
+      "light": "flexoki_base_50"
+    },
+    "diffLineNumber": {
+      "dark": "flexoki_base_700",
+      "light": "flexoki_base_500"
+    },
+    "diffAddedLineNumberBg": {
+      "dark": "flexoki_base_900",
+      "light": "flexoki_base_100"
+    },
+    "diffRemovedLineNumberBg": {
+      "dark": "flexoki_base_900",
+      "light": "flexoki_base_100"
+    },
+    "markdownText": {
+      "dark": "flexoki_base_200",
+      "light": "flexoki_base_800"
+    },
+    "markdownHeading": {
+      "dark": "flexoki_orange_2",
+      "light": "flexoki_orange"
+    },
+    "markdownLink": {
+      "dark": "flexoki_blue_2",
+      "light": "flexoki_blue"
+    },
+    "markdownLinkText": {
+      "dark": "flexoki_cyan_2",
+      "light": "flexoki_cyan"
+    },
+    "markdownCode": {
+      "dark": "flexoki_green_2",
+      "light": "flexoki_green"
+    },
+    "markdownBlockQuote": {
+      "dark": "flexoki_base_500",
+      "light": "flexoki_base_600"
+    },
+    "markdownEmph": {
+      "dark": "flexoki_yellow_2",
+      "light": "flexoki_yellow"
+    },
+    "markdownStrong": {
+      "dark": "flexoki_magenta_2",
+      "light": "flexoki_magenta"
+    },
+    "markdownHorizontalRule": {
+      "dark": "flexoki_base_700",
+      "light": "flexoki_base_500"
+    },
+    "markdownListItem": {
+      "dark": "flexoki_purple_2",
+      "light": "flexoki_purple"
+    },
+    "markdownListEnumeration": {
+      "dark": "flexoki_cyan_2",
+      "light": "flexoki_cyan"
+    },
+    "markdownImage": {
+      "dark": "flexoki_magenta_2",
+      "light": "flexoki_magenta"
+    },
+    "markdownImageText": {
+      "dark": "flexoki_cyan_2",
+      "light": "flexoki_cyan"
+    },
+    "markdownCodeBlock": {
+      "dark": "flexoki_base_200",
+      "light": "flexoki_base_800"
+    },
+    "syntaxComment": {
+      "dark": "flexoki_base_600",
+      "light": "flexoki_base_500"
+    },
+    "syntaxKeyword": {
+      "dark": "flexoki_purple_2",
+      "light": "flexoki_purple"
+    },
+    "syntaxFunction": {
+      "dark": "flexoki_blue_2",
+      "light": "flexoki_blue"
+    },
+    "syntaxVariable": {
+      "dark": "flexoki_cyan_2",
+      "light": "flexoki_cyan"
+    },
+    "syntaxString": {
+      "dark": "flexoki_green_2",
+      "light": "flexoki_green"
+    },
+    "syntaxNumber": {
+      "dark": "flexoki_magenta_2",
+      "light": "flexoki_magenta"
+    },
+    "syntaxType": {
+      "dark": "flexoki_yellow_2",
+      "light": "flexoki_yellow"
+    },
+    "syntaxOperator": {
+      "dark": "flexoki_orange_2",
+      "light": "flexoki_orange"
+    },
+    "syntaxPunctuation": {
+      "dark": "flexoki_base_300",
+      "light": "flexoki_base_700"
+    }
+  }
+}
