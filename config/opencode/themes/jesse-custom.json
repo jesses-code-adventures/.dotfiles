@@ -198,8 +198,8 @@
       "light": "flexoki_base_800"
     },
     "syntaxComment": {
-      "dark": "flexoki_base_500",
-      "light": "flexoki_base_600"
+      "dark": "flexoki_base_600",
+      "light": "flexoki_base_500"
     },
     "syntaxKeyword": {
       "dark": "flexoki_purple_2",
