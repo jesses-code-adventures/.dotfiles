@@ -14,6 +14,10 @@ export PATH="$PATH:/opt/homebrew/bin"
 export MANPAGER="nvim +Man!"
 export PSQL_PAGER='pspg -X -b'
 export HOMEBREW_NO_AUTO_UPDATE=1
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
+export PATH="$PATH:$ANDROID_HOME/emulator"
+export PATH="$PATH:$HOME/.bun/bin"
 alias vid="$HOME/.local/bin/vid-dl.bash"
 alias cat="bat"
 alias ls="eza"
@@ -127,7 +131,8 @@ elif [ -f "$HOME/.dotfiles/bashrc_personal" ]; then
 fi
 
 # opencode
-export PATH=/Users/jessewilliams/.opencode/bin:$PATH
+export PATH="$HOME/.opencode/bin:$PATH"
+alias oc='opencode'
 
 eval "$(starship init bash)"
 
