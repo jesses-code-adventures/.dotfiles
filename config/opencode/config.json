@@ -1,7 +1,7 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "theme": "jesse-custom",
-  "model": "openai/codex-5",
+  "model": "openai/gpt-5.3-codex",
   "agent": {
     "build": {
       "description": "Full development agent with all tools enabled",
