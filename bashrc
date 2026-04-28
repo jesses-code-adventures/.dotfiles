@@ -130,6 +130,8 @@ elif [ -f "$HOME/.dotfiles/bashrc_personal" ]; then
     source "$HOME/.dotfiles/bashrc_personal"
 fi
 
+. /opt/homebrew/etc/profile.d/z.sh
+
 # opencode
 export PATH="$HOME/.opencode/bin:$PATH"
 alias oc='opencode'
@@ -139,6 +141,7 @@ eval "$(starship init bash)"
 # Turso
 export PATH="$PATH:$HOME/.turso"
 
+export PATH=/Users/jesse/.opencode/bin:$PATH
 export PATH="$HOME/.pyenv/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
