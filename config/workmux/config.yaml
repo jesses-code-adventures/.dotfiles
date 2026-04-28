@@ -1,1 +1,17 @@
 nerdfont: true
+mode: session
+windows:
+  - name: nvim
+    panes:
+      - command: nvim
+  - name: bash
+    panes:
+      - command: bash
+  - name: opencode
+    panes:
+      - command: opencode
+        focus: true
+  - name: dev
+    panes:
+      - command: clear
+      - split: horizontal
