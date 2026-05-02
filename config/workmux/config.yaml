@@ -15,3 +15,18 @@ windows:
     panes:
       - command: clear
       - split: horizontal
+
+# Directory where worktrees are created.
+# Can be relative to repo root or absolute. Supports `~` for home directory
+# and `{project}` for the main worktree's directory name, so a global config
+# can namespace each repo, e.g. `~/.workmux/{project}`.
+# Default: Sibling directory '<project>__worktrees'.
+worktree_dir: ~/coding/.workmux_trees
+
+# Strategy for deriving names from branch names.
+# Options: full (default), basename (part after last '/').
+# worktree_naming: basename
+
+# Prefix added to worktree directories and tmux window names.
+worktree_prefix: "{project}-"
+

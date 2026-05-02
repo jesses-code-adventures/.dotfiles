@@ -20,6 +20,7 @@ export PATH="$PATH:$ANDROID_HOME/emulator"
 export PATH="$PATH:$HOME/.bun/bin"
 alias vid="$HOME/.local/bin/vid-dl.bash"
 alias cat="bat"
+alias wm="workmux"
 alias ls="eza"
 alias ll="eza --long"
 alias tree="eza --tree"
@@ -130,7 +131,9 @@ elif [ -f "$HOME/.dotfiles/bashrc_personal" ]; then
     source "$HOME/.dotfiles/bashrc_personal"
 fi
 
-. /opt/homebrew/etc/profile.d/z.sh
+if [ -f "/opt/homebrew/etc/profile.d/z.sh" ]; then
+	. /opt/homebrew/etc/profile.d/z.sh
+fi
 
 # opencode
 export PATH="$HOME/.opencode/bin:$PATH"
