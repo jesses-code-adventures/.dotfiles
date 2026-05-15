@@ -37,6 +37,7 @@ alias gl='git --no-pager log --oneline --graph --decorate --all -n 10'
 alias gmm='git fetch --all --prune && git merge origin/main'
 alias pipe='gh run list -L 5'
 alias ciw='watch -n 10 pipe'
+alias rp-login='AWS_PROFILE=rp-sandbox aws sso login && AWS_PROFILE=rp-prod aws sso login && AWS_PROFILE=rp-orch aws sso login'
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 alias prs='git fetch --all && gh pr list --json number,createdAt,headRefName,author,title,url | jq -r ".[] | [.number, .createdAt, .headRefName, .title, .author.login, .url] | @csv" | sort -r | column -ts $"," | sed "s/\"//g" | fzf | awk "{printf \$3}" | xargs -I_ git checkout _'
 complete -W "\`if [ -f Makefile ]; then grep -oE '^[a-zA-Z0-9_-]+:([^=]|$)' Makefile | sed 's/[^a-zA-Z0-9_-]*$//'; elif [ -f makefile ]; then grep -oE '^[a-zA-Z0-9_-]+:([^=]|$)' makefile | sed 's/[^a-zA-Z0-9_-]*$//'; fi \`" make
