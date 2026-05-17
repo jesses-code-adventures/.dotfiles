@@ -8,6 +8,7 @@ alias vi="nvim"
 export PATH=$PATH:"$HOME/.local/bin"
 export PATH=$PATH:"$HOME/.config/wezterm"
 export PATH=$PATH:"$HOME/go/bin"
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 export PATH="$PATH:/Library/PostgreSQL/16/bin"
 export PATH="$PATH:/opt/homebrew/bin"
 # export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -159,3 +160,6 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 . "$HOME/.cargo/env"
+
+# opencode
+export PATH=/home/jesse/.opencode/bin:$PATH

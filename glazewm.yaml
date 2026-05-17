@@ -1,0 +1,241 @@
+general:
+  startup_commands:
+    - 'shell-exec zebar'
+  focus_follows_cursor: false
+  toggle_workspace_on_refocus: false
+  cursor_jump:
+    enabled: true
+    trigger: 'monitor_focus'
+
+gaps:
+  scale_with_dpi: true
+  inner_gap: '10px'
+  outer_gap:
+    top: '40px'
+    right: '10px'
+    bottom: '10px'
+    left: '10px'
+
+window_rules:
+  - commands: ['ignore']
+    match:
+      - window_process: { equals: 'zebar' }
+  - commands: ['ignore']
+    match:
+      - window_process: { equals: 'SnippingTool.exe' }
+  - commands: ['ignore']
+    match:
+      - window_process: { equals: 'steam' }
+        window_title: { regex: '(Friends|Chat)' }
+
+window_behavior:
+  initial_state: 'tiling'
+  state_defaults:
+    floating:
+      centered: true
+      shown_on_top: false
+    fullscreen:
+      maximized: false
+      shown_on_top: false
+
+workspaces:
+  - name: '1'
+  - name: '2'
+  - name: '3'
+  - name: '4'
+  - name: '5'
+  - name: '6'
+  - name: '7'
+  - name: '8'
+  - name: '9'
+  - name: 'A'
+  - name: 'B'
+  - name: 'C'
+  - name: 'D'
+  - name: 'E'
+  - name: 'F'
+  - name: 'G'
+  - name: 'I'
+  - name: 'M'
+  - name: 'N'
+  - name: 'O'
+  - name: 'P'
+  - name: 'Q'
+  - name: 'R'
+  - name: 'S'
+  - name: 'T'
+  - name: 'U'
+  - name: 'V'
+  - name: 'W'
+  - name: 'X'
+  - name: 'Y'
+  - name: 'Z'
+
+binding_modes:
+  - name: 'service'
+    keybindings:
+      - commands: ['wm-disable-binding-mode --name service']
+        bindings: ['escape']
+      - commands: ['wm-reload-config', 'wm-disable-binding-mode --name service']
+        bindings: ['r']
+      - commands: ['toggle-tiling', 'wm-disable-binding-mode --name service']
+        bindings: ['f']
+      - commands: ['close', 'wm-disable-binding-mode --name service']
+        bindings: ['back']
+
+keybindings:
+  # Layout commands (alt+/ and alt+,)
+  - commands: ['toggle-tiling-direction']
+    bindings: ['alt+/']
+  - commands: ['toggle-tiling-direction']
+    bindings: ['alt+,']
+
+  # Focus commands (alt+h/j/k/l)
+  - commands: ['focus --direction left']
+    bindings: ['alt+h']
+  - commands: ['focus --direction down']
+    bindings: ['alt+j']
+  - commands: ['focus --direction up']
+    bindings: ['alt+k']
+  - commands: ['focus --direction right']
+    bindings: ['alt+l']
+
+  # Move commands (alt+shift+h/j/k/l)
+  - commands: ['move --direction left']
+    bindings: ['alt+shift+h']
+  - commands: ['move --direction down']
+    bindings: ['alt+shift+j']
+  - commands: ['move --direction up']
+    bindings: ['alt+shift+k']
+  - commands: ['move --direction right']
+    bindings: ['alt+shift+l']
+
+  # Resize commands (alt+shift+- and alt+shift+=)
+  - commands: ['resize --width -5%']
+    bindings: ['alt+shift+-']
+  - commands: ['resize --width +5%']
+    bindings: ['alt+shift+=']
+
+  # Workspace commands (alt+1-9)
+  - commands: ['focus --workspace 1']
+    bindings: ['alt+1']
+  - commands: ['focus --workspace 2']
+    bindings: ['alt+2']
+  - commands: ['focus --workspace 3']
+    bindings: ['alt+3']
+  - commands: ['focus --workspace 4']
+    bindings: ['alt+4']
+  - commands: ['focus --workspace 5']
+    bindings: ['alt+5']
+  - commands: ['focus --workspace 6']
+    bindings: ['alt+6']
+  - commands: ['focus --workspace 7']
+    bindings: ['alt+7']
+  - commands: ['focus --workspace 8']
+    bindings: ['alt+8']
+  - commands: ['focus --workspace 9']
+    bindings: ['alt+9']
+
+  # Workspace commands (alt+a-z)
+  - commands: ['focus --workspace A']
+    bindings: ['alt+a']
+  - commands: ['focus --workspace B']
+    bindings: ['alt+b']
+  - commands: ['focus --workspace C']
+    bindings: ['alt+c']
+  - commands: ['focus --workspace D']
+    bindings: ['alt+d']
+  - commands: ['focus --workspace E']
+    bindings: ['alt+e']
+  - commands: ['focus --workspace F']
+    bindings: ['alt+f']
+  - commands: ['focus --workspace G']
+    bindings: ['alt+g']
+  - commands: ['focus --workspace I']
+    bindings: ['alt+i']
+  - commands: ['focus --workspace M']
+    bindings: ['alt+m']
+  - commands: ['focus --workspace N']
+    bindings: ['alt+n']
+  - commands: ['focus --workspace O']
+    bindings: ['alt+o']
+  - commands: ['focus --workspace P']
+    bindings: ['alt+p']
+  - commands: ['focus --workspace Q']
+    bindings: ['alt+q']
+  - commands: ['focus --workspace R']
+    bindings: ['alt+r']
+  - commands: ['focus --workspace S']
+    bindings: ['alt+s']
+  - commands: ['focus --workspace T']
+    bindings: ['alt+t']
+  - commands: ['focus --workspace U']
+    bindings: ['alt+u']
+  - commands: ['focus --workspace V']
+    bindings: ['alt+v']
+  - commands: ['focus --workspace W']
+    bindings: ['alt+w']
+  - commands: ['focus --workspace X']
+    bindings: ['alt+x']
+  - commands: ['focus --workspace Y']
+    bindings: ['alt+y']
+  - commands: ['focus --workspace Z']
+    bindings: ['alt+z']
+
+  # Move to workspace commands (alt+shift+1-9)
+  - commands: ['move --workspace 1', 'focus --workspace 1']
+    bindings: ['alt+shift+1']
+  - commands: ['move --workspace 2', 'focus --workspace 2']
+    bindings: ['alt+shift+2']
+  - commands: ['move --workspace 3', 'focus --workspace 3']
+    bindings: ['alt+shift+3']
+  - commands: ['move --workspace 4', 'focus --workspace 4']
+    bindings: ['alt+shift+4']
+  - commands: ['move --workspace 5', 'focus --workspace 5']
+    bindings: ['alt+shift+5']
+  - commands: ['move --workspace 6', 'focus --workspace 6']
+    bindings: ['alt+shift+6']
+  - commands: ['move --workspace 7', 'focus --workspace 7']
+    bindings: ['alt+shift+7']
+  - commands: ['move --workspace 8', 'focus --workspace 8']
+    bindings: ['alt+shift+8']
+  - commands: ['move --workspace 9', 'focus --workspace 9']
+    bindings: ['alt+shift+9']
+
+  # Move to workspace commands (alt+shift+letter)
+  - commands: ['move --workspace A', 'focus --workspace A']
+    bindings: ['alt+shift+a']
+  - commands: ['move --workspace C', 'focus --workspace C']
+    bindings: ['alt+shift+c']
+  - commands: ['move --workspace D', 'focus --workspace D']
+    bindings: ['alt+shift+d']
+  - commands: ['move --workspace E', 'focus --workspace E']
+    bindings: ['alt+shift+e']
+  - commands: ['move --workspace G', 'focus --workspace G']
+    bindings: ['alt+shift+g']
+  - commands: ['move --workspace M', 'focus --workspace M']
+    bindings: ['alt+shift+m']
+  - commands: ['move --workspace P', 'focus --workspace P']
+    bindings: ['alt+shift+p']
+  - commands: ['move --workspace R', 'focus --workspace R']
+    bindings: ['alt+shift+r']
+  - commands: ['move --workspace T', 'focus --workspace T']
+    bindings: ['alt+shift+t']
+  - commands: ['move --workspace W', 'focus --workspace W']
+    bindings: ['alt+shift+w']
+
+  # Fullscreen (alt+shift+f)
+  - commands: ['toggle-fullscreen']
+    bindings: ['alt+shift+f']
+
+  # Workspace back-and-forth (alt+tab)
+  - commands: ['focus --recent-workspace']
+    bindings: ['alt+tab']
+
+  # Move workspace to monitor (alt+shift+tab)
+  - commands: ['move-workspace --direction right']
+    bindings: ['alt+shift+tab']
+
+  # Service mode (alt+shift+;)
+  - commands: ['wm-enable-binding-mode --name service']
+    bindings: ['alt+shift+;']
