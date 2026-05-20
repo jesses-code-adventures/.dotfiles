@@ -161,6 +161,3 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 . "$HOME/.cargo/env"
-
-# opencode
-export PATH=/home/jesse/.opencode/bin:$PATH
