@@ -91,7 +91,15 @@ if [ "$(git rev-list --count "${default_branch}..HEAD")" -eq 0 ]; then
   git commit --allow-empty -m "chore: start issue #${issue_number}"
 fi
 
-git push -u origin "$branch_name"
+repo_name_with_owner="$(gh repo view --json nameWithOwner --jq '.nameWithOwner')"
+head_sha="$(git rev-parse HEAD)"
+
+gh api \
+  --method POST \
+  "repos/${repo_name_with_owner}/git/refs" \
+  -f "ref=refs/heads/${branch_name}" \
+  -f "sha=${head_sha}" \
+  >/dev/null
 
 tmp_body_file="$(mktemp)"
 trap 'rm -f "$tmp_body_file"' EXIT
@@ -99,12 +107,14 @@ printf '%s\n' "$pr_body" > "$tmp_body_file"
 
 gh issue edit "$issue_number" --add-assignee "@me"
 
-pr_url="$(gh -R "$(gh repo view --json nameWithOwner --jq '.nameWithOwner')" pr create --title "$pr_title" --body-file "$tmp_body_file" --assignee "@me" --head "$branch_name")"
+pr_url="$(gh -R "$repo_name_with_owner" pr create --title "$pr_title" --body-file "$tmp_body_file" --assignee "@me" --head "$branch_name")"
 
 if [ "$use_workmux" = "true" ]; then
   git checkout "$current_branch"
   workmux add "$branch_name" --open-if-exists
 fi
+
+git push -u origin "$branch_name"
 
 echo "Created branch: $branch_name"
 echo "Created PR: $pr_url"
