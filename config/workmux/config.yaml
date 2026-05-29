@@ -29,4 +29,5 @@ worktree_dir: ~/coding/.workmux_trees
 
 # Prefix added to worktree directories and tmux window names.
 worktree_prefix: "{project}-"
+window_prefix: ""
 
