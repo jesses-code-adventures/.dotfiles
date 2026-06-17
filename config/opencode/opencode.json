@@ -1,12 +1,25 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "plugin": [
+    "/Users/jessewilliams/.nvm/versions/node/v22.18.0/lib/node_modules/opencode-codex-usage/dist/index.js"
+  ],
   "lsp": true,
   "mcp": {
+    "chrome-devtools": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "chrome-devtools-mcp@latest",
+        "--autoConnect",
+        "--no-usage-statistics"
+      ]
+    },
     "codebase-memory-mcp": {
       "enabled": true,
       "type": "local",
       "command": [
-        "/Users/jesse/.local/bin/codebase-memory-mcp"
+        "/Users/jessewilliams/.local/bin/codebase-memory-mcp"
       ]
     }
   }

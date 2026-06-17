@@ -1,4 +1,5 @@
 *.DS_Store
+config/age/keys.txt
 config/gh
 config/github-copilot
 config/iterm2
