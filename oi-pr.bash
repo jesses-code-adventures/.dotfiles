@@ -74,10 +74,42 @@ if [[ "$branch_name" =~ [0-9] ]]; then
   exit 1
 fi
 
-if git rev-parse --verify "$branch_name" >/dev/null 2>&1; then
-  echo "error: local branch already exists: $branch_name" >&2
-  exit 1
-fi
+repo_name_with_owner="$(gh repo view --json nameWithOwner --jq '.nameWithOwner')"
+branch_base="$branch_name"
+
+branch_suffix() {
+  local n="$1"
+  local chars="abcdefghijklmnopqrstuvwxyz"
+  local suffix=""
+
+  while [ "$n" -gt 0 ]; do
+    n=$((n - 1))
+    suffix="${chars:$((n % 26)):1}${suffix}"
+    n=$((n / 26))
+  done
+
+  printf '%s' "$suffix"
+}
+
+branch_exists() {
+  local candidate="$1"
+
+  if git show-ref --verify --quiet "refs/heads/${candidate}"; then
+    return 0
+  fi
+
+  if gh api "repos/${repo_name_with_owner}/git/ref/heads/${candidate}" >/dev/null 2>&1; then
+    return 0
+  fi
+
+  return 1
+}
+
+suffix_index=0
+while branch_exists "$branch_name"; do
+  suffix_index=$((suffix_index + 1))
+  branch_name="${branch_base}-$(branch_suffix "$suffix_index")"
+done
 
 use_workmux="false"
 if [ "${selection_key:-enter}" = "ctrl-y" ]; then
@@ -88,10 +120,34 @@ git checkout -b "$branch_name"
 
 default_branch="$(gh repo view --json defaultBranchRef --jq '.defaultBranchRef.name')"
 if [ "$(git rev-list --count "${default_branch}..HEAD")" -eq 0 ]; then
-  git commit --allow-empty -m "chore: start issue #${issue_number}"
+  default_ref="$(gh api "repos/${repo_name_with_owner}/git/ref/heads/${default_branch}")"
+  default_sha="$(printf '%s' "$default_ref" | jq -r '.object.sha')"
+  default_commit="$(gh api "repos/${repo_name_with_owner}/git/commits/${default_sha}")"
+  default_tree_sha="$(printf '%s' "$default_commit" | jq -r '.tree.sha')"
+  remote_start_sha="$(gh api \
+    --method POST \
+    "repos/${repo_name_with_owner}/git/commits" \
+    -f "message=chore: start issue #${issue_number}" \
+    -f "tree=${default_tree_sha}" \
+    -F "parents[]=${default_sha}" \
+    --jq '.sha')"
+  gh api \
+    --method POST \
+    "repos/${repo_name_with_owner}/git/refs" \
+    -f "ref=refs/heads/${branch_name}" \
+    -f "sha=${remote_start_sha}" \
+    >/dev/null
+  git fetch origin "$branch_name"
+  git reset --soft FETCH_HEAD
+else
+  head_sha="$(git rev-parse HEAD)"
+  gh api \
+    --method POST \
+    "repos/${repo_name_with_owner}/git/refs" \
+    -f "ref=refs/heads/${branch_name}" \
+    -f "sha=${head_sha}" \
+    >/dev/null
 fi
-
-git push -u origin "$branch_name"
 
 tmp_body_file="$(mktemp)"
 trap 'rm -f "$tmp_body_file"' EXIT
@@ -99,12 +155,14 @@ printf '%s\n' "$pr_body" > "$tmp_body_file"
 
 gh issue edit "$issue_number" --add-assignee "@me"
 
-pr_url="$(gh -R "$(gh repo view --json nameWithOwner --jq '.nameWithOwner')" pr create --title "$pr_title" --body-file "$tmp_body_file" --assignee "@me" --head "$branch_name")"
+pr_url="$(gh -R "$repo_name_with_owner" pr create --title "$pr_title" --body-file "$tmp_body_file" --assignee "@me" --head "$branch_name")"
 
 if [ "$use_workmux" = "true" ]; then
   git checkout "$current_branch"
   workmux add "$branch_name" --open-if-exists
 fi
+
+git push -u origin "$branch_name"
 
 echo "Created branch: $branch_name"
 echo "Created PR: $pr_url"
