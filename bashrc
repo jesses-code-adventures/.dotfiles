@@ -42,6 +42,9 @@ alias op='bash "$HOME/.dotfiles/oi-pr-existing.bash"'
 alias pipe='gh run list -L 5'
 alias ciw='watch -n 10 pipe'
 alias rp-login='AWS_PROFILE=rp-sandbox aws sso login && AWS_PROFILE=rp-prod aws sso login && AWS_PROFILE=rp-orch aws sso login'
+export OPENCODE_AUTH_PATH="$HOME/.local/share/opencode/auth.json"
+alias ssh-in='./ssh-fzf.bash'
+
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 alias prs='git fetch --all && gh pr list --json number,createdAt,headRefName,author,title,url | jq -r ".[] | [.number, .createdAt, .headRefName, .title, .author.login, .url] | @csv" | sort -r | column -ts $"," | sed "s/\"//g" | fzf | awk "{printf \$3}" | xargs -I_ git checkout _'
 complete -W "\`if [ -f Makefile ]; then grep -oE '^[a-zA-Z0-9_-]+:([^=]|$)' Makefile | sed 's/[^a-zA-Z0-9_-]*$//'; elif [ -f makefile ]; then grep -oE '^[a-zA-Z0-9_-]+:([^=]|$)' makefile | sed 's/[^a-zA-Z0-9_-]*$//'; fi \`" make
