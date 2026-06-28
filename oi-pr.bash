@@ -56,9 +56,37 @@ Issue:
 ${issue_body}
 "
 
-ai_text="$(opencode run --format json "$prompt" | jq -rs '[.[] | select(.type == "text") | .part.text] | join("")')"
+ai_text="$(opencode run --format json "$prompt" </dev/null | jq -rs '[.[] | select(.type == "text") | .part.text] | join("")')"
 
-generated="$(printf '%s' "$ai_text" | jq -er '.')"
+# Some models wrap JSON in markdown code fences or add preamble text.
+# Extract the first {...} block by finding the outermost braces.
+ai_json="$(printf '%s' "$ai_text" | python3 -c "
+import sys, re
+text = sys.stdin.read()
+# Find the first { and its matching }
+start = text.find('{')
+if start == -1:
+    sys.exit(1)
+depth = 0
+for i, c in enumerate(text[start:], start):
+    if c == '{': depth += 1
+    elif c == '}':
+        depth -= 1
+        if depth == 0:
+            print(text[start:i+1])
+            sys.exit(0)
+sys.exit(1)
+")" || {
+  echo "error: AI response contained no JSON object. Raw output:" >&2
+  printf '%s\n' "$ai_text" >&2
+  exit 1
+}
+
+generated="$(printf '%s' "$ai_json" | jq -er '.')" || {
+  echo "error: AI response could not be parsed as JSON. Raw output:" >&2
+  printf '%s\n' "$ai_text" >&2
+  exit 1
+}
 
 branch_name="$(printf '%s' "$generated" | jq -r '.branch_name')"
 pr_title="$(printf '%s' "$generated" | jq -r '.pr_title')"
