@@ -30,6 +30,7 @@ link_dotfile "$DOTFILES_DIR/tmux.conf" "$HOME/.tmux.conf"
 link_dotfile "$DOTFILES_DIR/vimrc" "$HOME/.vimrc"
 link_dotfile "$DOTFILES_DIR/gitmux.conf" "$HOME/.gitmux.conf"
 link_dotfile "$DOTFILES_DIR/gitignore_global" "$HOME/.gitignore_global"
+link_dotfile "$DOTFILES_DIR/gitconfig_rapid" "$HOME/.gitconfig-rapid"
 link_dotfile "$DOTFILES_DIR/tmux_sessionizer.bash" "$HOME/.local/bin/tmux_sessionizer.bash"
 link_dotfile "$DOTFILES_DIR/config/nvim" "$HOME/.config/nvim"
 link_dotfile "$DOTFILES_DIR/config/opencode" "$HOME/.config/opencode"
@@ -41,6 +42,10 @@ link_dotfile "$DOTFILES_DIR/config/starship.toml" "$HOME/.config/starship.toml"
 chmod +x "$HOME/.local/bin/tmux_sessionizer.bash"
 mkdir -p "$HOME/.config/tmux/sessions"
 git config --global core.excludesfile "$HOME/.gitignore_global"
+git config --global user.name "jesse"
+git config --global user.email "jesse@soundsystems.dev"
+git config --global 'url.git@github.com:lfsgroup/.insteadOf' 'https://github.com/lfsgroup/'
+git config --global 'includeIf.gitdir:/workspace/coding/rapid/.path' "$HOME/.gitconfig-rapid"
 
 if [ ! -e "$HOME/coding" ] && [ -d /workspace/coding ]; then
   ln -s /workspace/coding "$HOME/coding"
