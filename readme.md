@@ -17,3 +17,5 @@ chmod +x ~/.dotfiles/install
 The Linux installer expects Mise and the base build tools installed by the `dev-box` repository. Existing files replaced by symlinks are retained with a `.pre-dotfiles` suffix.
 
 Git uses `jesse@soundsystems.dev` globally and `jesse@rapidpaylegal.com` for repositories under `/workspace/coding/rapid`. Private `lfsgroup` GitHub dependencies are fetched with the forwarded SSH key.
+
+Run `aws-login` to check the Rapid, Sound Systems, and GiveTel sessions and start phone-friendly device authorization only for sessions that have expired. All three Rapid profiles share one `rapid` SSO session.

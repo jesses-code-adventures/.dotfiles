@@ -42,7 +42,23 @@ alias oip='bash "$HOME/.dotfiles/oi-pr.bash"'
 alias op='bash "$HOME/.dotfiles/oi-pr-existing.bash"'
 alias pipe='gh run list -L 5'
 alias ciw='watch -n 10 pipe'
-alias rp-login='AWS_PROFILE=rp-sandbox aws sso login && AWS_PROFILE=rp-prod aws sso login && AWS_PROFILE=rp-orch aws sso login'
+alias rp-login='aws sso login --sso-session rapid --use-device-code'
+
+aws-login() {
+    local session profile
+    while read -r session profile; do
+        if AWS_PROFILE="$profile" aws sts get-caller-identity >/dev/null 2>&1; then
+            printf '%s: already authenticated\n' "$session"
+            continue
+        fi
+        printf '%s: authentication required\n' "$session"
+        aws sso login --sso-session "$session" --use-device-code || return
+    done <<'EOF'
+rapid rp-sandbox
+sound-systems sound-systems
+givetel givetel
+EOF
+}
 export OPENCODE_AUTH_PATH="$HOME/.local/share/opencode/auth.json"
 alias ssh-in='./ssh-fzf.bash'
 if fzf_bash=$(fzf --bash 2>/dev/null); then
