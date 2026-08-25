@@ -1,5 +1,6 @@
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export EDITOR=nvim
+export PATH="/opt/homebrew/opt/go@1.25/bin:$PATH"
 set -o vi
 # export DEFAULT_USER=$USER
 export PS1='\[\033[0;35m\]\W\[\033[00m\] '
@@ -44,6 +45,8 @@ alias ciw='watch -n 10 pipe'
 alias rp-login='AWS_PROFILE=rp-sandbox aws sso login && AWS_PROFILE=rp-prod aws sso login && AWS_PROFILE=rp-orch aws sso login'
 export OPENCODE_AUTH_PATH="$HOME/.local/share/opencode/auth.json"
 alias ssh-in='./ssh-fzf.bash'
+eval "$(fzf --bash)"
+alias opencode="opencode2"
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 alias prs='git fetch --all && gh pr list --json number,createdAt,headRefName,author,title,url | jq -r ".[] | [.number, .createdAt, .headRefName, .title, .author.login, .url] | @csv" | sort -r | column -ts $"," | sed "s/\"//g" | fzf | awk "{printf \$3}" | xargs -I_ git checkout _'

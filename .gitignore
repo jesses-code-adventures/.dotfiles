@@ -25,4 +25,5 @@ config/humanlog/
 config/md-tui/
 config/nvim-scratch/
 config/ruff/
+config/opencode/service.json
 config/wezterm/
