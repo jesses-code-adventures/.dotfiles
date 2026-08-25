@@ -12,8 +12,8 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 case "$OS" in
   'Linux')
-    echo "Linux is not supported yet - exiting."
-    exit 1
+    chmod +x "$DIR/inst_linux"
+    "$DIR/inst_linux"
     ;;
   'Darwin')
     chmod +x "$DIR/inst_macos"

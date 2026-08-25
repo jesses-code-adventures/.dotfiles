@@ -1,15 +1,17 @@
 # jesse's dotfiles
 
-i use this repo to set up new machines. currently it supports fresh osx installs, it will support linux, it will not support windows at this stage.
+i use this repo to set up new macOS and Linux development machines. Windows is not supported.
 
 ## installation
 
-on a new mac, run git --version so that you're prompted to install the developer tools. then, run the following commands.
+Clone the repository recursively and run the platform installer:
 
 _note: do not blindly install this on your own system. this is for fresh installs and contains my preferred defaults_
 
 ```bash
-git clone --recurse-submodules github.com/jesses-code-adventures/.dotfiles ~/.dotfiles
+git clone --recurse-submodules https://github.com/jesses-code-adventures/.dotfiles ~/.dotfiles
 chmod +x ~/.dotfiles/install
 ~/.dotfiles/install
 ```
+
+The Linux installer expects Mise and the base build tools installed by the `dev-box` repository. Existing files replaced by symlinks are retained with a `.pre-dotfiles` suffix.

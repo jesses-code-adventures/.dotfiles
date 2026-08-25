@@ -45,8 +45,14 @@ alias ciw='watch -n 10 pipe'
 alias rp-login='AWS_PROFILE=rp-sandbox aws sso login && AWS_PROFILE=rp-prod aws sso login && AWS_PROFILE=rp-orch aws sso login'
 export OPENCODE_AUTH_PATH="$HOME/.local/share/opencode/auth.json"
 alias ssh-in='./ssh-fzf.bash'
-eval "$(fzf --bash)"
-alias opencode="opencode2"
+if fzf_bash=$(fzf --bash 2>/dev/null); then
+  eval "$fzf_bash"
+elif [ -f /usr/share/doc/fzf/examples/key-bindings.bash ]; then
+  source /usr/share/doc/fzf/examples/key-bindings.bash
+fi
+if command -v opencode2 >/dev/null 2>&1; then
+  alias opencode="opencode2"
+fi
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 alias prs='git fetch --all && gh pr list --json number,createdAt,headRefName,author,title,url | jq -r ".[] | [.number, .createdAt, .headRefName, .title, .author.login, .url] | @csv" | sort -r | column -ts $"," | sed "s/\"//g" | fzf | awk "{printf \$3}" | xargs -I_ git checkout _'
@@ -151,7 +157,9 @@ fi
 export PATH="$HOME/.opencode/bin:$PATH"
 alias oc='opencode'
 
-eval "$(starship init bash)"
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init bash)"
+fi
 
 # Turso
 export PATH="$PATH:$HOME/.turso"
@@ -166,4 +174,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
-. "$HOME/.cargo/env"
+if [ -f "$HOME/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
+fi
+
+# dev-box-agent-forwarding
+if [ -S "$HOME/.ssh/agent.sock" ]; then
+  export SSH_AUTH_SOCK="$HOME/.ssh/agent.sock"
+fi

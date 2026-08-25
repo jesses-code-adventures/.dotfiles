@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DOTFILES_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+
+link_dotfile() {
+  local source_path=$1
+  local target_path=$2
+  local backup_path="${target_path}.pre-dotfiles"
+
+  mkdir -p "$(dirname "$target_path")"
+  if [ -L "$target_path" ] && [ "$(readlink "$target_path")" = "$source_path" ]; then
+    return
+  fi
+  if [ -e "$target_path" ] || [ -L "$target_path" ]; then
+    if [ -e "$backup_path" ] || [ -L "$backup_path" ]; then
+      echo "Cannot replace $target_path because $backup_path already exists." >&2
+      exit 1
+    fi
+    mv "$target_path" "$backup_path"
+  fi
+  ln -s "$source_path" "$target_path"
+}
+
+mkdir -p "$HOME/.config" "$HOME/.local/bin" "$HOME/.tmux/plugins"
+
+link_dotfile "$DOTFILES_DIR/bashrc" "$HOME/.bashrc"
+link_dotfile "$DOTFILES_DIR/bash_profile" "$HOME/.bash_profile"
+link_dotfile "$DOTFILES_DIR/tmux.conf" "$HOME/.tmux.conf"
+link_dotfile "$DOTFILES_DIR/vimrc" "$HOME/.vimrc"
+link_dotfile "$DOTFILES_DIR/gitmux.conf" "$HOME/.gitmux.conf"
+link_dotfile "$DOTFILES_DIR/gitignore_global" "$HOME/.gitignore_global"
+link_dotfile "$DOTFILES_DIR/tmux_sessionizer.bash" "$HOME/.local/bin/tmux_sessionizer.bash"
+link_dotfile "$DOTFILES_DIR/config/nvim" "$HOME/.config/nvim"
+link_dotfile "$DOTFILES_DIR/config/opencode" "$HOME/.config/opencode"
+link_dotfile "$DOTFILES_DIR/config/tmux" "$HOME/.config/tmux"
+link_dotfile "$DOTFILES_DIR/config/lazygit" "$HOME/.config/lazygit"
+link_dotfile "$DOTFILES_DIR/config/workmux" "$HOME/.config/workmux"
+link_dotfile "$DOTFILES_DIR/config/starship.toml" "$HOME/.config/starship.toml"
+
+chmod +x "$HOME/.local/bin/tmux_sessionizer.bash"
+mkdir -p "$HOME/.config/tmux/sessions"
+git config --global core.excludesfile "$HOME/.gitignore_global"
+
+if [ ! -e "$HOME/coding" ] && [ -d /workspace/coding ]; then
+  ln -s /workspace/coding "$HOME/coding"
+fi
+
+if ! command -v mise >/dev/null 2>&1; then
+  echo 'mise is required; run the dev-box tool installer first.' >&2
+  exit 1
+fi
+
+mise use --global \
+  delta@latest \
+  eza@latest \
+  lazygit@latest \
+  neovim@latest \
+  starship@latest \
+  workmux@latest
+
+mise exec -- npm install --global @opencode-ai/cli@beta
+mise exec -- go install github.com/arl/gitmux@latest
+
+if [ ! -d "$HOME/.tmux/plugins/tpm/.git" ]; then
+  git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+fi
+"$HOME/.tmux/plugins/tpm/bin/install_plugins"
+
+echo 'Linux dotfiles installed. Start a new login shell to load them.'
