@@ -194,6 +194,6 @@ if [ -f "$HOME/.cargo/env" ]; then
 fi
 
 # dev-box-agent-forwarding
-if [ -S "$HOME/.ssh/agent.sock" ]; then
+if { [ -z "${SSH_AUTH_SOCK:-}" ] || [ ! -S "$SSH_AUTH_SOCK" ]; } && [ -S "$HOME/.ssh/agent.sock" ]; then
   export SSH_AUTH_SOCK="$HOME/.ssh/agent.sock"
 fi
