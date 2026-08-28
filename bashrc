@@ -1,6 +1,7 @@
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export EDITOR=nvim
 export PATH="/opt/homebrew/opt/go@1.25/bin:$PATH"
+export PATH="$HOME/.opencode/bin:$PATH"
 set -o vi
 # export DEFAULT_USER=$USER
 export PS1='\[\033[0;35m\]\W\[\033[00m\] '
@@ -169,8 +170,6 @@ if [ -f "/opt/homebrew/etc/profile.d/z.sh" ]; then
 	. /opt/homebrew/etc/profile.d/z.sh
 fi
 
-# opencode
-export PATH="$HOME/.opencode/bin:$PATH"
 alias oc='opencode'
 
 if command -v starship >/dev/null 2>&1; then
