@@ -64,7 +64,16 @@ mise use --global \
   starship@latest \
   workmux@latest
 
-mise exec -- npm install --global @opencode-ai/cli@beta
+if [ -d /workspace ]; then
+  mkdir -p /workspace/cache/npm /workspace/cache/go-build /workspace/cache/go-mod
+  mise exec -- npm config set cache /workspace/cache/npm --location=user
+  mise exec -- go env -w GOCACHE=/workspace/cache/go-build GOMODCACHE=/workspace/cache/go-mod
+fi
+
+if ! mise exec -- opencode2 --version >/dev/null 2>&1; then
+  mise exec -- npm install --global @opencode-ai/cli@beta
+  mise exec -- npm cache clean --force
+fi
 mise exec -- go install github.com/arl/gitmux@latest
 
 if [ ! -d "$HOME/.tmux/plugins/tpm/.git" ]; then

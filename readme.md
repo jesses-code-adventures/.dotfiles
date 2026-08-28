@@ -19,3 +19,5 @@ The Linux installer expects Mise and the base build tools installed by the `dev-
 Git uses `jesse@soundsystems.dev` globally and `jesse@rapidpaylegal.com` for repositories under `/workspace/coding/rapid`. Private `lfsgroup` GitHub dependencies are fetched with the forwarded SSH key.
 
 Run `aws-login` to check the Rapid, Sound Systems, and GiveTel sessions and start phone-friendly device authorization only for sessions that have expired. All three Rapid profiles share one `rapid` SSO session.
+
+On the dev box, npm and Go caches are stored under `/workspace/cache` so package and build caches cannot fill the root volume.
