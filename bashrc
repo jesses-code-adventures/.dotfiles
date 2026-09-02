@@ -44,6 +44,9 @@ alias op='bash "$HOME/.dotfiles/oi-pr-existing.bash"'
 alias pipe='gh run list -L 5'
 alias ciw='watch -n 10 pipe'
 alias rp-login='aws sso login --sso-session rapid --use-device-code'
+alias stay-awake='caffeinate -dimsu'
+alias enable-clam='sudo pmset -a disablesleep 1'
+alias disable-clam='sudo pmset -a disablesleep 0'
 
 aws-login() {
     local session profile
