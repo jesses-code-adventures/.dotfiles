@@ -43,7 +43,7 @@ alias oip='bash "$HOME/.dotfiles/oi-pr.bash"'
 alias op='bash "$HOME/.dotfiles/oi-pr-existing.bash"'
 alias pipe='gh run list -L 5'
 alias ciw='watch -n 10 pipe'
-alias rp-login='aws sso login --sso-session rapid --use-device-code'
+alias rp-login='aws sso login --sso-session rapid'
 alias stay-awake='caffeinate -dimsu'
 alias enable-clam='sudo pmset -a disablesleep 1'
 alias disable-clam='sudo pmset -a disablesleep 0'
@@ -64,7 +64,7 @@ givetel givetel
 EOF
 }
 export OPENCODE_AUTH_PATH="$HOME/.local/share/opencode/auth.json"
-alias ssh-in='./ssh-fzf.bash'
+alias ssh-in='~/.dotfiles/ssh-fzf.bash'
 if fzf_bash=$(fzf --bash 2>/dev/null); then
   eval "$fzf_bash"
 elif [ -f /usr/share/doc/fzf/examples/key-bindings.bash ]; then

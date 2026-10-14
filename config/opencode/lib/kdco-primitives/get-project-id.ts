@@ -12,7 +12,6 @@ import * as crypto from "node:crypto"
 import { stat } from "node:fs/promises"
 import * as path from "node:path"
 import { logWarn } from "./log-warn"
-import type { OpencodeClient } from "./types"
 import { TimeoutError, withTimeout } from "./with-timeout"
 
 /**
@@ -56,7 +55,7 @@ function hashPath(projectRoot: string): string {
  * // Returns: "def456..." (16-char path hash)
  * ```
  */
-export async function getProjectId(projectRoot: string, client?: OpencodeClient): Promise<string> {
+export async function getProjectId(projectRoot: string, client?: unknown): Promise<string> {
 	// Guard: Validate projectRoot (Law 1: Early Exit, Law 4: Fail Fast)
 	if (!projectRoot || typeof projectRoot !== "string") {
 		throw new Error("getProjectId: projectRoot is required and must be a string")

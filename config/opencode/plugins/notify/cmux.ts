@@ -1,4 +1,4 @@
-import { TimeoutError, withTimeout } from "../kdco-primitives/with-timeout"
+import { TimeoutError, withTimeout } from "../../lib/kdco-primitives/with-timeout"
 
 interface CmuxNotificationPayload {
 	title: string
