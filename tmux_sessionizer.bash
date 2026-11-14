@@ -54,12 +54,8 @@ if [[ -z $selected ]]; then
 fi
 
 selected_name=$(basename "$selected" | tr . _)
-tmux_running=$(pgrep tmux)
-
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s "$selected_name" -c "$selected"
-    hydrate "$selected_name" "$selected"
-    exit 0
+if [[ -z ${TMUX:-} ]]; then
+    exec bash "$(dirname "${BASH_SOURCE[0]}")/rex_sessionizer.bash" "$selected"
 fi
 
 if ! has_session "$selected_name"; then
