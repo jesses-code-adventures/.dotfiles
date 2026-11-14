@@ -1,4 +1,6 @@
 -- Keep the tmux keys so switching terminal backends doesn't change muscle memory.
+-- shortcut: prefix-only history resets on reload; replace when Rex exposes last-session navigation.
+local session_history = {}
 local function terminal_binding(key, name, action, args)
     rex.action{
         name = name,
@@ -11,6 +13,13 @@ local function terminal_binding(key, name, action, args)
             if not process or (process.foreground or {}).name == "tmux" then
                 rex.client.queue("pane.send_key", { key = key })
             else
+                if key == "ctrl+z" then
+                    local history = session_history[ctx.client_id] or {}
+                    if history.current ~= ctx.session_id then
+                        history.previous, history.current = history.current, ctx.session_id
+                    end
+                    session_history[ctx.client_id] = history
+                end
                 rex.client.queue(action, args)
             end
         end,
@@ -29,6 +38,17 @@ rex.bind("prefix/h", "pane.focus", { direction = "left" })
 rex.bind("prefix/j", "pane.focus", { direction = "down" })
 rex.bind("prefix/k", "pane.focus", { direction = "up" })
 rex.bind("prefix/l", "pane.focus", { direction = "right" })
+rex.action{
+    name = "last_session",
+    title = "Go to Last Used Session",
+    run = function(ctx)
+        local history = session_history[ctx.client_id]
+        if history and history.previous then
+            rex.client.queue("session.select", { session_id = history.previous })
+        end
+    end,
+}
+rex.bind("prefix/shift+l", "last_session")
 rex.bind("prefix/r", "client.config.reload")
 rex.action{
     name = "sessionizer",

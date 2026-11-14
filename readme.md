@@ -62,6 +62,8 @@ The Rex bindings mirror tmux: `Ctrl-Z` then `p` switches sessions, `s`/`v`
 split panes, `h`/`j`/`k`/`l` move focus, `r` reloads config, and `Shift-W`
 renames a tab. `Ctrl-H`/`Ctrl-L` switch tabs; `Ctrl-Z Ctrl-Z` sends `Ctrl-Z`.
 `Ctrl-Z f` opens the project sessionizer picker in a temporary Projects tab.
+`Ctrl-Z Shift-L` jumps to the last session where you used `Ctrl-Z`, per Rex
+client. Mouse-only visits aren't tracked, and config reload clears this history.
 When the focused Rex terminal is running tmux, `Ctrl-Z`, `Ctrl-H`, and `Ctrl-L`
 pass through to tmux instead of invoking Rex shortcuts.
 `Ctrl-Z x` closes the focused Rex pane (and its tab if it is the last pane)
