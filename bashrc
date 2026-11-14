@@ -174,6 +174,7 @@ if [ -f "/opt/homebrew/etc/profile.d/z.sh" ]; then
 fi
 
 alias oc='opencode'
+alias codex='codex --yolo'
 
 if command -v starship >/dev/null 2>&1; then
   eval "$(starship init bash)"
@@ -200,3 +201,5 @@ fi
 if { [ -z "${SSH_AUTH_SOCK:-}" ] || [ ! -S "$SSH_AUTH_SOCK" ]; } && [ -S "$HOME/.ssh/agent.sock" ]; then
   export SSH_AUTH_SOCK="$HOME/.ssh/agent.sock"
 fi
+
+export PATH="$HOME/.stripe/bin:$PATH"

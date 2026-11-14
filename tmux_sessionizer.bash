@@ -40,6 +40,7 @@ else
         ~/coding/sound-systems
         ~/coding/australian-technique
         ~/coding/contrib
+		~/coding/gamedev
     )
     existing_roots=()
     for root in "${search_roots[@]}"; do
