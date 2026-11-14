@@ -1,0 +1,15 @@
+-- Migrated from ~/.tmux.conf.
+-- rex.bind("ctrl+z>p", "session.switch")
+-- rex.bind("ctrl+z>s", "pane.split", { direction = "down" })
+-- rex.bind("ctrl+z>v", "pane.split", { direction = "right" })
+-- rex.bind("ctrl+z>h", "pane.focus", { direction = "left" })
+-- rex.bind("ctrl+z>j", "pane.focus", { direction = "down" })
+-- rex.bind("ctrl+z>k", "pane.focus", { direction = "up" })
+-- rex.bind("ctrl+z>l", "pane.focus", { direction = "right" })
+-- rex.bind("ctrl+z>r", "client.config.reload")
+-- rex.bind("ctrl+l", "client.tab.next")
+-- rex.bind("ctrl+h", "client.tab.previous")
+-- rex.bind("ctrl+z>shift+w", "client.tab.rename")
+--
+-- -- Send the prefix to the terminal by pressing it twice.
+-- rex.bind("ctrl+z>ctrl+z", "pane.send_key", { key = "ctrl+z" })
