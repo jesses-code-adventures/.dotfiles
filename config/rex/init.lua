@@ -54,12 +54,15 @@ rex.action{
     name = "sessionizer",
     title = "Open Project Session",
     run = function(ctx)
-        local result, err = rex.exec({
+        -- Return before the launcher asks the app to run its native New Tab action.
+        local launcher, err = rex.exec.start({
             "/bin/bash", os.getenv("HOME") .. "/.dotfiles/rex_sessionizer.bash",
             "--open-picker", ctx.session_id, ctx.client_id,
+        }, {
+            detach = true,
+            stderr = function(text) rex.log("error", text) end,
         })
-        assert(result, err)
-        assert(result.ok, result.stderr)
+        assert(launcher, err)
     end,
 }
 rex.bind("prefix/f", "sessionizer")
