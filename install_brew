@@ -18,6 +18,8 @@ brew install node
 brew install tmux
 ## neovim
 brew install neovim
+## image previews in Neovim's fuzzy finder
+brew install chafa
 ## web browser
 brew install --cask arc
 ## notes
